@@ -6,32 +6,32 @@ const benefits = [
     title: "Mood-based Outfit Suggestions",
     description: "Get personalized outfit recommendations based on how you want to feel—calm, confident, creative, or anything in between.",
     icon: <Smile className="h-6 w-6 text-white" />,
-    iconBg: "bg-coral-400",
+    iconBg: "bg-blue-500",
     delay: "100ms"
   },
   {
     title: "Sustainable Styling",
     description: "Discover how to upcycle your wardrobe and make eco-friendly fashion choices with our sustainable style tips.",
     icon: <Leaf className="h-6 w-6 text-white" />,
-    iconBg: "bg-sage-500",
+    iconBg: "bg-blue-400",
     delay: "300ms"
   },
   {
     title: "Body-positive Affirmations",
     description: "Embrace your unique style with confidence through personalized body-positive fashion affirmations.",
     icon: <Heart className="h-6 w-6 text-white" />,
-    iconBg: "bg-blush-200",
+    iconBg: "bg-indigo-400",
     delay: "500ms"
   }
 ];
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white/90 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-800 mb-4">
-            Fashion Psychology<span className="text-coral-400">.</span> Personalized Style<span className="text-coral-400">.</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-4">
+            Fashion Psychology<span className="text-blue-500">.</span> Personalized Style<span className="text-blue-500">.</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             StyleMind combines psychology with fashion to help you dress with intention and create the impact you desire.
@@ -48,7 +48,7 @@ const BenefitsSection = () => {
               <div className={`card-icon ${benefit.iconBg}`}>
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold text-navy-800 mb-3">
+              <h3 className="text-xl font-bold text-blue-800 mb-3">
                 {benefit.title}
               </h3>
               <p className="text-gray-600">
