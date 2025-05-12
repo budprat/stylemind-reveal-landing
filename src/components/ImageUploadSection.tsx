@@ -3,31 +3,26 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, Image, Sparkles } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { TextCursorInput, Sparkles, Image } from "lucide-react";
 
 const WEBHOOK_URL = "https://primary-production-8b5a1.up.railway.app/webhook/generate-image";
 
 const ImageUploadSection = () => {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
-  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [styleDescription, setStyleDescription] = useState<string>("");
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setSelectedImage(file);
-      setPreviewUrl(URL.createObjectURL(file));
-      setGeneratedImage(null);
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setStyleDescription(e.target.value);
   };
 
-  const handleUpload = async () => {
-    if (!selectedImage) {
+  const handleGenerate = async () => {
+    if (!styleDescription.trim()) {
       toast({
-        title: "No image selected",
-        description: "Please select an image to upload",
+        title: "No description provided",
+        description: "Please enter a style description",
         variant: "destructive",
       });
       return;
@@ -36,17 +31,14 @@ const ImageUploadSection = () => {
     setIsLoading(true);
 
     try {
-      // Convert the image to base64 to send to the webhook
-      const base64Image = await convertFileToBase64(selectedImage);
-      
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          image: base64Image,
-          fileName: selectedImage.name,
+          text: styleDescription,
+          prompt: styleDescription
         }),
       });
 
@@ -65,11 +57,11 @@ const ImageUploadSection = () => {
       } else {
         toast({
           title: "Processing",
-          description: "Image was received but no generated image was returned. This might take some time.",
+          description: "Style description was received but no generated image was returned. This might take some time.",
         });
       }
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error("Error generating style:", error);
       toast({
         title: "Error",
         description: "Failed to generate the style. Please try again.",
@@ -80,17 +72,8 @@ const ImageUploadSection = () => {
     }
   };
 
-  const convertFileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
-
   return (
-    <section className="py-24 bg-blue-950/90 backdrop-blur-lg relative overflow-hidden">
+    <section className="py-24 bg-blue-950/90 backdrop-blur-lg relative overflow-hidden" id="style-generator">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500/0 via-indigo-500/50 to-purple-500/0"></div>
       <div className="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-indigo-600/10 blur-3xl"></div>
@@ -105,7 +88,7 @@ const ImageUploadSection = () => {
             <Sparkles className="h-6 w-6 text-purple-400" />
           </h2>
           <p className="text-lg text-indigo-100 max-w-2xl mx-auto">
-            Upload an image and let our AI generate a personalized fashion style guide based on your preferences.
+            Describe your style preferences and let our AI generate a personalized fashion style guide tailored to you.
           </p>
         </div>
 
@@ -114,37 +97,33 @@ const ImageUploadSection = () => {
             <CardHeader className="text-center border-b border-indigo-800/30 pb-6">
               <CardTitle className="text-2xl text-indigo-200">Transform Your Style</CardTitle>
               <CardDescription className="text-indigo-300">
-                Upload a reference image to generate your personalized style recommendations
+                Describe your style preferences to generate personalized fashion recommendations
               </CardDescription>
             </CardHeader>
             <CardContent className="pt-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex flex-col items-center justify-center">
-                  <div className="relative w-full h-64 bg-indigo-900/50 border-2 border-dashed border-indigo-700/50 rounded-lg flex flex-col items-center justify-center mb-6 overflow-hidden group transition-all duration-300 hover:border-indigo-600/70">
-                    {previewUrl ? (
-                      <img 
-                        src={previewUrl} 
-                        alt="Preview" 
-                        className="h-full w-full object-contain rounded-lg" 
-                      />
-                    ) : (
-                      <>
-                        <Upload className="h-12 w-12 text-indigo-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
-                        <p className="text-indigo-300 text-center px-4">
-                          Drag & drop your image here or click to browse
-                        </p>
-                      </>
-                    )}
-                    <input 
-                      type="file" 
-                      accept="image/*" 
-                      onChange={handleImageChange} 
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" 
+                  <div className="relative w-full bg-indigo-900/50 border border-indigo-700/50 rounded-lg p-4 mb-6 overflow-hidden group transition-all duration-300 hover:border-indigo-600/70">
+                    <div className="flex items-center mb-3">
+                      <TextCursorInput className="h-5 w-5 text-indigo-400 mr-2" />
+                      <label htmlFor="styleDescription" className="text-indigo-300 font-medium">
+                        Style Description
+                      </label>
+                    </div>
+                    <Input
+                      id="styleDescription"
+                      value={styleDescription}
+                      onChange={handleInputChange}
+                      placeholder="E.g., 'Minimalist elegance with earth tones and clean silhouettes'"
+                      className="bg-indigo-800/30 border-indigo-600/30 text-indigo-100 placeholder:text-indigo-400/60 focus-visible:ring-purple-500/50"
                     />
+                    <p className="mt-3 text-xs text-indigo-400/80 italic">
+                      Be specific about colors, patterns, materials, and occasions you prefer.
+                    </p>
                   </div>
                   <Button 
-                    onClick={handleUpload} 
-                    disabled={!selectedImage || isLoading} 
+                    onClick={handleGenerate} 
+                    disabled={!styleDescription.trim() || isLoading} 
                     className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 border-none text-white font-medium py-6"
                   >
                     {isLoading ? (
