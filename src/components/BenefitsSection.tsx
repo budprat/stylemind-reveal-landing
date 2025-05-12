@@ -27,13 +27,13 @@ const benefits = [
 
 const BenefitsSection = () => {
   return (
-    <section className="py-20 bg-white/80 backdrop-blur-sm">
+    <section className="py-20 bg-gray-900/90 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-sky-800 mb-4">
-            Fashion Psychology<span className="text-sky-500">.</span> Personalized Style<span className="text-sky-500">.</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-sky-300 mb-4">
+            Fashion Psychology<span className="text-sky-400">.</span> Personalized Style<span className="text-sky-400">.</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             StyleMind combines psychology with fashion to help you dress with intention and create the impact you desire.
           </p>
         </div>
@@ -48,10 +48,10 @@ const BenefitsSection = () => {
               <div className={`card-icon ${benefit.iconBg}`}>
                 {benefit.icon}
               </div>
-              <h3 className="text-xl font-bold text-sky-700 mb-3">
+              <h3 className="text-xl font-bold text-sky-300 mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 {benefit.description}
               </p>
             </div>
