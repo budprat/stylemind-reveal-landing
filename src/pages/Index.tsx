@@ -35,12 +35,12 @@ const Index = () => {
     // Create all necessary meta tags
     createMeta({ 
       name: "description", 
-      content: "Discover mood-based, sustainable fashion with StyleMind - where psychology meets style for empowering outfit choices." 
+      content: "Mood-based, sustainable fashion for confidence. StyleMind helps you dress to express your authentic self." 
     });
     
     createMeta({ 
       name: "keywords", 
-      content: "fashion psychology, sustainable fashion, mood-based outfits, body positivity" 
+      content: "fashion psychology, sustainable fashion, mood-based outfits, body positivity, style confidence" 
     });
     
     createMeta({ 
@@ -50,7 +50,7 @@ const Index = () => {
     
     createMeta({ 
       property: "og:description", 
-      content: "Discover mood-based, sustainable fashion with StyleMind." 
+      content: "Mood-based, sustainable fashion for confidence and self-expression." 
     });
     
     createMeta({ 
@@ -70,7 +70,7 @@ const Index = () => {
     
     createMeta({ 
       name: "twitter:description", 
-      content: "Discover mood-based, sustainable fashion with StyleMind." 
+      content: "Mood-based, sustainable fashion for confidence and self-expression." 
     });
     
   }, []); // Empty dependency array ensures this runs only once when component mounts
