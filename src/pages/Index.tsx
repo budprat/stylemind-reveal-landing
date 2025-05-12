@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -76,7 +75,9 @@ const Index = () => {
   }, []); // Empty dependency array ensures this runs only once when component mounts
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-hidden bg-pattern">
+      <div className="absolute inset-0 bg-gradient-to-br from-blush-100/40 via-white/80 to-sage-300/40 -z-10"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=2071')] bg-cover bg-center opacity-10 mix-blend-overlay -z-10"></div>
       <HeroSection />
       <BenefitsSection />
       <TestimonialSection />
