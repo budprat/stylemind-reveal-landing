@@ -1,13 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Helmet } from "react-helmet";
+import HeroSection from "@/components/HeroSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import FAQSection from "@/components/FAQSection";
+import LeadCaptureForm from "@/components/LeadCaptureForm";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>StyleMind - Dress with Purpose</title>
+        <meta name="description" content="Discover mood-based, sustainable fashion with StyleMind - where psychology meets style for empowering outfit choices." />
+        <meta name="keywords" content="fashion psychology, sustainable fashion, mood-based outfits, body positivity" />
+        <meta property="og:title" content="StyleMind - Dress with Purpose" />
+        <meta property="og:description" content="Discover mood-based, sustainable fashion with StyleMind." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="StyleMind - Dress with Purpose" />
+        <meta name="twitter:description" content="Discover mood-based, sustainable fashion with StyleMind." />
+      </Helmet>
+
+      <div className="min-h-screen overflow-hidden">
+        <HeroSection />
+        <BenefitsSection />
+        <TestimonialSection />
+        <LeadCaptureForm />
+        <FAQSection />
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
