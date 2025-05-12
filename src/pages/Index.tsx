@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import BenefitsSection from "@/components/BenefitsSection";
@@ -85,10 +84,8 @@ const Index = () => {
       
       <div className="relative z-10">
         <HeroSection />
+        <ImageUploadSection />
         <BenefitsSection />
-        <div id="image-upload">
-          <ImageUploadSection />
-        </div>
         <TestimonialSection />
         <LeadCaptureForm />
         <FAQSection />
