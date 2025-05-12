@@ -49,13 +49,13 @@ const LeadCaptureForm = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-900 to-indigo-800 text-white">
+    <section className="py-16 bg-gradient-to-br from-sky-900 to-blue-800 text-white">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Get Early Access
           </h2>
-          <p className="text-lg text-blue-100 mb-8">
+          <p className="text-lg text-sky-100 mb-8">
             Be among the first to experience the future of fashion psychology.
           </p>
           
@@ -65,19 +65,19 @@ const LeadCaptureForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="bg-white/10 border-white/20 text-white placeholder-white/60 focus:border-blue-400"
+              className="bg-white/10 border-white/20 text-white placeholder-white/60 focus:border-sky-400"
               required
             />
             <Button 
               type="submit" 
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium"
+              className="bg-sky-500 hover:bg-sky-600 text-white font-medium"
               disabled={isLoading}
             >
               {isLoading ? "Subscribing..." : "Get Started"}
             </Button>
           </form>
           
-          <p className="text-sm text-blue-200 mt-4">
+          <p className="text-sm text-sky-200 mt-4">
             We respect your privacy. No spam, ever.
           </p>
         </div>
