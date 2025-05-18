@@ -1,73 +1,81 @@
-# Welcome to your Lovable project
 
-## Project info
+# StyleMind - Dress with Purpose
 
-**URL**: https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135
+[![StyleMind Preview](https://img.shields.io/badge/Live%20Preview-StyleMind-9B59B6?style=for-the-badge)](https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135)
 
-## How can I edit this code?
+## About StyleMind
 
-There are several ways of editing your application.
+StyleMind is a mood-based fashion platform that helps users dress with purpose and confidence. By blending psychology with sustainable fashion choices, StyleMind empowers users to express their authentic selves through their clothing choices.
 
-**Use Lovable**
+### Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135) and start prompting.
+- **Style Generator**: Create personalized outfit recommendations based on your mood and preferences
+- **Benefits Analysis**: Understand the psychological impact of different clothing choices
+- **Testimonials**: Read success stories from users who've transformed their style confidence
+- **FAQ Section**: Get answers to common questions about fashion psychology
+- **Lead Capture**: Stay updated with the latest fashion psychology insights
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+This project is built with modern web technologies:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **React**: Frontend library for building user interfaces
+- **TypeScript**: Static typing for more robust code
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **shadcn/ui**: High-quality UI components built with Radix UI and Tailwind
+- **Vite**: Next-generation frontend build tool
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Live Preview
 
-Follow these steps:
+Visit the [StyleMind Live Preview](https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135) to see the application in action.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Installation
+
+```bash
+# Clone the repository
+git clone <YOUR_REPOSITORY_URL>
+
+# Navigate to project directory
+cd stylemind
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project can be easily deployed through the Lovable platform. Simply open [Lovable](https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135) and click on Share -> Publish.
 
-**Use GitHub Codespaces**
+## Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+/src
+  /components
+    /ui          # UI components from shadcn/ui
+    /...         # Custom components
+  /hooks         # Custom React hooks
+  /lib           # Utility functions
+  /pages         # Page components
+```
 
-## What technologies are used for this project?
+## Contributing
 
-This project is built with:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Simply open [Lovable](https://lovable.dev/projects/1904f353-b2d7-4b75-a070-e4cf58b5e135) and click on Share -> Publish.
+## Acknowledgments
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Built with [Lovable](https://lovable.dev)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
